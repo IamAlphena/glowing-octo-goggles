@@ -1,57 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>White Blueberries</title>
-    <link link rel="stylesheet" href="./assets/css/style.css" />
-    <link rel="preconnect" href="https://fonts.gstatic.com/%22%3E" />
-    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@200&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com/%22%3E" />
-    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&family=Prompt:wght@200&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <title>Chatty Batty</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+   
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- <style>
+        #form {
+            background: rgba(0, 0, 0, 0.15);
+            padding: 0.25rem;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            height: 3rem;
+            box-sizing: border-box;
+            backdrop-filter: blur(10px);
+        }
+
+        #input {
+            border: none;
+            padding: 0 1rem;
+            flex-grow: 1;
+            border-radius: 2rem;
+            margin: 0.25rem;
+        }
+
+        #input:focus {
+            outline: none;
+        }
+
+        #form>button {
+            background: #333;
+            border: none;
+            padding: 0 1rem;
+            margin: 0.25rem;
+            border-radius: 3px;
+            outline: none;
+            color: #fff;
+        }
+
+        #messages {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        #messages>li {
+            padding: 0.5rem 1rem;
+        }
+
+        #messages>li:nth-child(odd) {
+            background: #efefef;
+        }
+    </style> -->
 
 </head>
 
 <body>
-    <header>
-        <h1>White Blueberries</h1>
-    </header>
+    <div class="topbar">
+        <!-- Profile link & Logout button-->
+        <p>Test</p>
+    </div>
+    <div class="sidenav">
+        <!--Lists all the available chats includes the search bar and the button to take you to your individual messages-->
+        <p>Home</p>
+    </div>
+    <main class="main">
+        <header>
+            <p>Welcome to the chatroom</p>
+        </header>
+        <div class="chatbox">
+    <ul id="messages"></ul>
 
-    <div class="main">
-        <div class="navbar">
-            <div id="recent-container">
-                <h1>Recent Searches</h1>
-                <ul id="recent-list"></ul>
-            </div>
-            <div id="favorites-container">
-                <h1>Favorite Items</h1>
-            </div>
-        </div>
+</div>
+    <form id="form" action="">
+        <input id="input" autocomplete="off" /><button>Send</button>
+    </form>
 
-        <div class="searchBox">
-            <input type="text" placeholder="Search foods and drinks" id="search-text">
-            <div class="spacer"></div>
-            <div id="search-btns">
-                <button id="food-btn">Food</button>
-                <button id="drink-btn">Drinks</button>
-            </div>
-        </div>
+    <script src="/socket.io/socket.io.js"></script>
 
-        <div class="card-column">
-            <div class="info-card">
-                <h2>Thai Green Curry</h2>
-                <img src="https://www.themealdb.com/images/media/meals/sstssx1487349585.jpg">
-                <i class="fas fa-star"></i>
-            </div>
-        </div>
+    <script>
+            var socket = io();
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="./assets/js/script.js"></script>
+      var messages = document.getElementById('messages');
+      var form = document.getElementById('form');
+      var input = document.getElementById('input');
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        if (input.value) {
+          socket.emit('chat message', input.value);
+          input.value = '';
+        }
+      });
+
+      socket.on('chat message', function(msg) {
+        var item = document.createElement('li');
+        item.textContent = msg;
+        messages.appendChild(item);
+        window.scrollTo(0, document.body.scrollHeight);
+      });
+    </script>
 </body>
 
 </html>
