@@ -15,22 +15,42 @@ OffWhite: #B4A5A5
     --otherAccent: #301B3F;
     --messageA: #836A94;
     --messageB: #7D7483;
+    --gradient: linear-gradient(140deg, #B4A5A5, #301b3f);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Fantasy';
 }
 
 body {
-    background-color: var(--base);
+    background: var(--gradient);
     color: var(--font);
     margin: 0 auto;
     font-size: 20px;
     overflow: hidden;
-    padding-bottom: 3rem; 
-    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
 }
 
 .topbar {
-    border: 1px solid var(--offAccent);
-    height: 45px;
+    /* border: 1px solid var(--offAccent); */
+    /* height: 45px; */
+    /* max-width: 700px; */
     width: 100%;
+    background-color:var(--base);
+    text-align: center;
+    padding: 25px 30px;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px var(--accent);
+    position: relative;
+
+    opacity: 0.8;
+    /* position: absolute; */
 }
 
 .sidenav {
