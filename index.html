@@ -1,45 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="/css/loginStyle.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chatty Batty</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
-    <div class="topbar">
-        <!-- Profile link & Logout button-->
-        <h1> Chubby Bunny </h1>
-    </div>
-    <nav class="nav">
-        <a href="#">Profile  </a> 
-        <a href="#">Logout  </a>
-    </nav>
-    <div class="spacer"></div>
-    <div class="sidenav">
-        <!--Lists all the available chats includes the search bar and the button to take you to your individual messages-->
-        <p>Home</p>
-    </div>
-    <div class="main">
-        <header>
-            <p>Welcome to the chatroom</p>
-        </header>
-        <div class="chatbox">
-            <ul id="messages"></ul>
-            <form id="form" action="">
-                <input id="input" autocomplete="off" /><button>Send</button>
+
+    <!-- <div class="header">
+        <img src="../images/ani-adigyozalyan-v6GfQ7gLlvY-unsplash.jpg" alt="bunny1" />
+        <img src="../images/pablo-martinez-eXLCx0XBaUE-unsplash.jpg" alt="bunny2" />
+        <img src="../images/sgalagaev--5iSCtrJX5o-unsplash.jpg" alt="bunny3" />
+        <img src="../images/janan-lagerwall-p2UbTX6Uoig-unsplash.jpg" alt="bunny4" />
+        <img src="../images/kanashi-4mN6MNWuEbs-unsplash.jpg" alt="bunny5" />
+        <img src="../images/joshua-daniel-ZW9fonU39Uc-unsplash.jpg" alt="bunny6" />
+        <img src="../images/sgalagaev-_qlg6aa4XgU-unsplash.jpg" alt="bunny7" />
+        <img src="../images/isaac-demeester-o6GS1eOmCJ0-unsplash.jpg" alt="bunny8" />
+    </div> -->
+
+
+
+    <div class="container">
+        <div class="title">Chubby Bunny</div>
+        <div class="content">
+
+            <form action="#">
+
+                <div class="user-details">
+
+                    <div class="input-box">
+                        <span class="details" id="userName">Username</span>
+                        <input type="text" placeholder="Enter your username" required>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details" id="password">Password</span>
+                        <input type="text" placeholder="Enter your password" required>
+                    </div>
+
+
+                </div>
+
+                <div class="button" id="submitBtn">
+                    <input type="submit" value="Log In">
+                </div>
+
+
+                <div class="button">
+                    <a href="register.html">Sign Up</a>
+                </div>
+
+
             </form>
+
         </div>
-    </div>
-
-
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="/js/index.js"></script>
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="/js/login.js"></script>
 </body>
+
 
 </html>
