@@ -5,7 +5,7 @@ const path = require('path');
 const app = require('express')();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
-// const routes = require('./controllers')
+const routes = require('./controllers')
 
 const port = process.env.PORT || 3000;
 
@@ -24,6 +24,8 @@ io.on('connection', (socket) => {
     io.emit('chat message', msg);
   });
 });
+
+app.use(routes);
 
 
 http.listen(port, () => {

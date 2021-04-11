@@ -4,7 +4,7 @@ const { Chat, User } = require('../../models');
 //get all messages
 //  /:id - being chatroom id ?
 
-router.get('/:id', async (req, res) => {
+router.get('/', async (req, res) => {
     try{
         const chatMessages = await Chat.findAll({
           include:[
@@ -33,4 +33,4 @@ router.post('/', async (req, res) => {
 
 //delete own message
 
-
+module.exports = router;
